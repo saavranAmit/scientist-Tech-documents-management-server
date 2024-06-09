@@ -1,19 +1,19 @@
-from flask import Flask, request, jsonify, send_from_directory, current_app
+from flask import Flask, request, jsonify, send_from_directory, current_app    #install flask
 from werkzeug.utils import secure_filename
 import os
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy     #install SQLAlchemy 
 from datetime import datetime
-from flask_cors import CORS
+from flask_cors import CORS    #install flask_cors using pip
 
-app = Flask(__name__)
+app = Flask(__name__)    # app is object of Flask
 
-CORS(app)
+CORS(app) 
 
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
 
 app.config['UPLOAD_FOLDER'] = 'uploads'
-MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB
+
 db = SQLAlchemy(app)
 
 app.app_context().push()
